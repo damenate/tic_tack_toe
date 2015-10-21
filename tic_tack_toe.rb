@@ -7,10 +7,16 @@
       print "\n"
 
 puts "Enter a position!"
-position = gets.chomp.to_s
+spot = gets.chomp
+positions = ["a1","a2", "a3", "b1", "b2", "b3", "c1", "c2", "c3"]
 
-if position.include?(["a1","a2", "a3", "b1", "b2", "b3", "c1", "c2", "c3"].to_s)
+if positions.include?(spot)
   puts "Awesome!"
 else
   puts "Enter a available position please!"
 end
+
+def display_board
+  array = [[" ", " ", " "],
+
+ ]]
