@@ -29,7 +29,7 @@
   end
 
   def x_of
-    
+
   end
 
   def y_of
