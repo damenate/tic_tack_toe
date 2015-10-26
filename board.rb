@@ -40,7 +40,7 @@ class Board
     input[1].to_i - 1
   end
 
-  def occupied?(input)
-    @board[row_of(input)][col_of(input)] == "X"
-  end
+  # def occupied?(input)
+  #   @board[row_of(input)][col_of(input)] == "X"
+  # end
 end

@@ -18,20 +18,7 @@ winning_combos = [
 
 @board.print_directions
 @board.print_board
-# 
-# @position.board_spot
-# @position.update_board
-# @position.occupied?
 
 
-while new_board.any? { |r| r.include?(" ") }
-  puts "Enter a position!"
-  input = gets.chomp
-  if @board.occupied?(input)
-    puts "Please pick an unoccupied spot."
-  else
-    update_board(input)
-    print_board
-  end
-  puts "Game Over"
-end
+@position.board_spot
+puts "Game Over"

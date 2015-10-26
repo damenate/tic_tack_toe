@@ -41,3 +41,13 @@ def display_board
      print_board
    end
    puts "Game Over"
+ end
+
+   def occupied?(input)
+     row_of(input).empty? || col_of(input).length != 2
+   end
+
+
+   input = gets.chomp
+   if @board.occupied?
+     puts "Please pick an unoccupied spot."
