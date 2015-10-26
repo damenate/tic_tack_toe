@@ -30,3 +30,14 @@ def display_board
    ["a1", "b1", "c1"], ["a2", "b2", "c2"], ["a3", "b3", "c3"],
    # Diagonal wins:
    ["a1", "b2", "c3"], ["a3", "b2", "c1"]]
+
+
+   print_directions
+   print_board
+
+   while @board.any? { |r| r.include?(" ") }
+     puts "Enter a position!"
+     update_board(gets.chomp)
+     print_board
+   end
+   puts "Game Over"

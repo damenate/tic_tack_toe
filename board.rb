@@ -1,9 +1,15 @@
 class Board
-  @board =  [[" ", " ", " "],
+
+  def initialize
+    @board =  [[" ", " ", " "],
             [" ", " ", " "],
             [" ", " ", " "]]
+  end
 
   def print_directions
+    puts ""
+    puts "Pick a spot on the board!"
+    puts ""
     puts "a1 | a2| a3"
     puts "___________"
     puts "b1 | b2| b3"
@@ -25,26 +31,16 @@ class Board
     print "\n"
   end
 
-  def update_board(input)
-    @board[x_of(input)][y_of(input)] = "X"
-  end
-
-  def x_of(input)
+  def row_of(input)
     hash = { "a" => 0, "b" => 1, "c" => 2 }
     hash[input[0]]
   end
 
-  def y_of(input)
+  def col_of(input)
     input[1].to_i - 1
   end
 
-  print_directions
-  print_board
-
-  while @board.any? { |r| r.include?(" ") }
-    puts "Enter a position!"
-    update_board(gets.chomp)
-    print_board
+  def occupied?(input)
+    @board[row_of(input)][col_of(input)] == "X"
   end
-  puts "Game Over"
 end
