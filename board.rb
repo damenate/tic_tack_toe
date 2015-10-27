@@ -1,9 +1,14 @@
+require 'byebug'
 class Board
 
+  attr_reader :places, :board
+
   def initialize
-    @board =  [[" ", " ", " "],
-            [" ", " ", " "],
-            [" ", " ", " "]]
+    @board = [
+      [" ", " ", " "],
+      [" ", " ", " "],
+      [" ", " ", " "]
+    ]
   end
 
   def print_directions
@@ -31,14 +36,6 @@ class Board
     print "\n"
   end
 
-  # def row_of(input)
-  #   hash = { "a" => 0, "b" => 1, "c" => 2 }
-  #   hash[input[0]]
-  # end
-  #
-  # def col_of(input)
-  #   input[1].to_i - 1
-  # end
 
   # def occupied?(input)
   #   @board[row_of(input)][col_of(input)] == "X"

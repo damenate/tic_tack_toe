@@ -1,5 +1,6 @@
 class Position
 
+  attr_reader :board
 
   def initialize
     @board =  [[" ", " ", " "],
@@ -20,9 +21,10 @@ class Position
     print "\n"
   end
 
-  def update_board(input)
-    @board[row_of(input)][col_of(input)] = "X"
+  def update_board(input, move)
+    @board[row_of(input)][col_of(input)] = move
   end
+
 
   def row_of(input)
     hash = { "a" => 0, "b" => 1, "c" => 2 }
@@ -33,15 +35,19 @@ class Position
     input[1].to_i - 1
   end
 
-  def board_spot
-    while @board.any? { |r| r.include?(" ") }
-      puts "Enter a position!"
-      update_board(gets.chomp)
-      print_board
+  def winning_ways
+    winning_combos = [
+      # Horizontal
+      [[0,0], [0,1], [0,2]], [[1,0], [1,1], [1, 2]], [[2,0], [2,1], [2,2]],
+      # Vertical
+      [[0,0], [1,0], [2,0]], [[0,1], [1,1], [2,1]], [[0,2], [1,2], [2,2]],
+      # Diagonal
+      [[0,0], [1,1], [2,2]], [[0,2], [1,1], [2,0]]
+      ]
+    winning_combos.each do |combo|
+      return "X has won!" if combo.all? {|c| @board[c[0]][c[1]] == "X"}
+      return "O has won!" if combo.all? {|c| @board[c[0]][c[1]] == "O"}
     end
-    puts "Game Over"
+    return "You Losers"
   end
-
-
-
 end

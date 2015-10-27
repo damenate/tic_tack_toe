@@ -1,11 +1,4 @@
 
-  puts "a1 | a2| a3"
-  puts "___________"
-  puts "b1 | b2| b3"
-  puts "___________"
-  puts "c1 | c2| c3"
-      print "\n"
-
 puts "Enter a position!"
 spot = gets.chomp
 positions = ["a1","a2", "a3", "b1", "b2", "b3", "c1", "c2", "c3"]
@@ -16,32 +9,21 @@ else
   puts "Enter a available position please!"
 end
 
-def display_board
-  array = [[" ", " ", " "],
-
- ]]
-
-
 
  winning_combos = [
    # Horizontal wins:
-   ["a1", "a2", "a3"], ["b1", "b2", "b3"], ["c1", "c2", "c3"],
+   [[0,0], [0,1], [0,2]], [[1,0], [1,1], [1, 2]], [[2,0], [2,1], [2,2]],
    # Vertical wins:
-   ["a1", "b1", "c1"], ["a2", "b2", "c2"], ["a3", "b3", "c3"],
+   [[0,0], [1,0], [2,0]], [[0,1], [1,1], [2,1]], [[0,2], [1,2], [2,2]],
    # Diagonal wins:
-   ["a1", "b2", "c3"], ["a3", "b2", "c1"]]
+   [[0,0], [1,1], [2,2]], [[0,2], [1,1], [2,0]]]
 
-
-   print_directions
-   print_board
-
-   while @board.any? { |r| r.include?(" ") }
-     puts "Enter a position!"
-     update_board(gets.chomp)
-     print_board
+   winning_combos.each do |combo|
+     return "X has won!" if combo.all? {|c| @board[c[0]][c[1]] == "X"}
+     return "O has won!" if combo.all? {|c| @board[c[0]][c[1]] == "O"}
    end
-   puts "Game Over"
- end
+   return "You are all losers."
+
 
    def occupied?(input)
      row_of(input).empty? || col_of(input).length != 2

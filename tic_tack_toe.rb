@@ -2,24 +2,36 @@ require './board'
 require './position'
 require './game'
 
-new_board = [[" ", " ", " "],
-            [" ", " ", " "],
-            [" ", " ", " "]]
-
-winning_combos = [
-  # Horizontal:
-  ["a1", "a2", "a3"], ["b1", "b2", "b3"], ["c1", "c2", "c3"],
-  # Vertical:
-  ["a1", "b1", "c1"], ["a2", "b2", "c2"], ["a3", "b3", "c3"],
-  # Diagonal:
-  ["a1", "b2", "c3"], ["a3", "b2", "c1"]]
+puts "Player 1, enter you name:"
+p1 = gets.chomp
+puts "Player 2, enter you name:"
+p2 = gets.chomp
 
 @position = Position.new
 @board = Board.new
+@game = Game.new(p1, p2)
+
+@current_player = p1
 
 @board.print_directions
 @board.print_board
 
+move = "X"
 
-@position.board_spot
+
+while @position.board.any? { |r| r.include?(" ") }
+  puts "#{@current_player} Enter a position!"
+  input = gets.chomp
+  @position.update_board(input, move)
+  @position.print_board
+  if @current_player == p1
+    @current_player = p2
+    move = "O"
+  else
+    @current_player = p1
+    move = "X"
+  end
+  puts @position.winning_ways
+  break if @position.winning_ways == "X has won!" || @position.winning_ways == "O has won!"
+end
 puts "Game Over"
