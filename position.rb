@@ -3,6 +3,8 @@ class Position
   attr_reader :board
 
   def initialize
+    #board to get position board working
+    #REMEMBER: this is a different board than the board's board
     @board =  [[" ", " ", " "],
               [" ", " ", " "],
               [" ", " ", " "]]

@@ -4,6 +4,7 @@ class Board
   attr_reader :places, :board
 
   def initialize
+    #not the same as the positions board.
     @board = [
       [" ", " ", " "],
       [" ", " ", " "],
