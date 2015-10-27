@@ -1,5 +1,6 @@
 require './board'
 require './position'
+require './game'
 
 new_board = [[" ", " ", " "],
             [" ", " ", " "],
