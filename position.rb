@@ -8,6 +8,7 @@ class Position
     @board =  [[" ", " ", " "],
               [" ", " ", " "],
               [" ", " ", " "]]
+    # @positions = ["a1","a2", "a3", "b1", "b2", "b3", "c1", "c2", "c3"]
   end
 
   def print_board
@@ -27,6 +28,9 @@ class Position
     @board[row_of(input)][col_of(input)] = move
   end
 
+  # def occupied?(input)
+  #   row_of(@positions.input).empty? || col_of(@positions.input).length != 2
+  # end
 
   def row_of(input)
     hash = { "a" => 0, "b" => 1, "c" => 2 }
@@ -50,6 +54,6 @@ class Position
       return "X has won!" if combo.all? {|c| @board[c[0]][c[1]] == "X"}
       return "O has won!" if combo.all? {|c| @board[c[0]][c[1]] == "O"}
     end
-    return "You Losers"
+    return "No Winners Yet."
   end
 end

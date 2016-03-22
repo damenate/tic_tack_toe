@@ -1,3 +1,4 @@
+require './board'
 class Game
 
   attr_reader :player1, :player2
@@ -9,6 +10,7 @@ class Game
 
   def start_game
     puts "Let's Play a Game."
+    puts " "
     puts "Player1 enter your name:"
     name1 = gets.chomp
     @player1 = HumanPlayer.new(name1)
@@ -16,6 +18,4 @@ class Game
     name2 = gets.chomp
     @player2 = HumanPlayer.new(name2)
   end
-
-
 end
