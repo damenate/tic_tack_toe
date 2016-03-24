@@ -6,7 +6,7 @@ spots = ["a1","a2", "a3", "b1", "b2", "b3", "c1", "c2", "c3"]
 
 @position = Position.new
 @board = Board.new
-@game = Game.new(p1, p2)
+@game = Game.new(p1 = "", p2 = "")
 
 @current_player = p1
 move = "X"
@@ -43,11 +43,11 @@ end
   end
   puts "Game Over"
 
-elsif num_players == "1"
+if num_players == "1"
   puts "Enter your name"
   play1 = gets.chomp
   puts "Dummy Computer awaits"
-while @position.board.any? { |r| r.include?(" ") }
+  while @position.board.any? { |r| r.include?(" ") }
   puts "#{@current_player} Enter a position!"
   input = gets.chomp
   @position.update_board(input, move)
@@ -62,8 +62,8 @@ while @position.board.any? { |r| r.include?(" ") }
   puts @position.winning_ways
   break if @position.winning_ways == "X has won!" || @position.winning_ways == "O has won!"
 end
-puts "Game Over"
-
+  puts "Game Over"
+end
 # while @position.board.any? { |r| r.include?(" ") }
 #   input1 = gets.chomp
 #   if input1.empty? || input1.length != 2
