@@ -64,10 +64,3 @@ if num_players == "1"
 end
   puts "Game Over"
 end
-# while @position.board.any? { |r| r.include?(" ") }
-#   input1 = gets.chomp
-#   if input1.empty? || input1.length != 2
-#     puts " Spots take, try again."
-#     redo
-#   end
-# end
